@@ -78,9 +78,9 @@ export function Hero() {
 
             {/* Headline */}
             <motion.h1 variants={itemVariants} className="text-hero mb-6">
-              The AI native law firm
+              The AI Native Law Firm
               <br />
-              for the <span style={{ color: 'var(--accent)' }}>growth stage</span>
+              for the <span style={{ color: 'var(--accent)' }}>Growth Stage</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -90,11 +90,11 @@ export function Hero() {
 
             {/* CTAs */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" className="whitespace-nowrap">
                 {HERO_CONTENT.primaryCta}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" className="whitespace-nowrap">
                 {HERO_CONTENT.secondaryCta}
               </Button>
             </motion.div>
