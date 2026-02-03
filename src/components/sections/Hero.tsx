@@ -78,11 +78,13 @@ export function Hero() {
 
             {/* Headline */}
             <motion.h1 variants={itemVariants} className="text-hero mb-6">
-              The AI Native
+              <span className="whitespace-nowrap">The AI Native</span>
               <br />
-              Law Firm
+              <span className="whitespace-nowrap">Law Firm</span>
               <br />
-              for the <span style={{ color: 'var(--accent)' }}>Growth Stage</span>
+              <span className="whitespace-nowrap">for the</span>
+              <br />
+              <span className="whitespace-nowrap" style={{ color: 'var(--accent)' }}>Growth Stage</span>
             </motion.h1>
 
             {/* Subheadline */}
