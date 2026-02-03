@@ -16,7 +16,7 @@ export const NAV_LINKS = [
 
 export const HERO_CONTENT = {
   badge: "AI-Native Law Firm",
-  headline: "The AI Native Law Firm\nfor the Growth Stage",
+  headline: "The AI Native\nLaw Firm\nfor the Growth Stage",
   subheadline:
     "Our experienced attorneys manage your contracts from review to signature for $500/contract. Turns in 3 hours or less.",
   primaryCta: "Review My Contract",
