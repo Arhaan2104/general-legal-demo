@@ -8,7 +8,6 @@ import {
   Services,
   Pricing,
   AIAdvantage,
-  Trust,
   FAQ,
   FinalCTA,
 } from "./components/sections";
@@ -40,7 +39,6 @@ function App() {
         <Services />
         <Pricing />
         <AIAdvantage />
-        <Trust />
         <FAQ />
         <FinalCTA />
       </main>

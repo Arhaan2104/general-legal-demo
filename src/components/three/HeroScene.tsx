@@ -115,6 +115,30 @@ function FloatingShapes({ mouse }: { mouse: { x: number; y: number } }) {
           />
         </Box>
       </Float>
+
+      {/* Additional floating cube - top right */}
+      <Float speed={2.2} rotationIntensity={0.3} floatIntensity={1}>
+        <Box args={[0.3, 0.3, 0.3]} position={[2.2, 1.5, 0.5]} rotation={[0.5, 0.5, 0]}>
+          <meshStandardMaterial
+            color={goldColor}
+            roughness={0.2}
+            metalness={0.9}
+            wireframe
+          />
+        </Box>
+      </Float>
+
+      {/* Additional floating cube - bottom */}
+      <Float speed={1.5} rotationIntensity={0.25} floatIntensity={0.9}>
+        <Box args={[0.25, 0.25, 0.25]} position={[0.8, -1.5, -0.3]} rotation={[0.3, 0.8, 0.2]}>
+          <meshStandardMaterial
+            color={lightGold}
+            roughness={0.2}
+            metalness={0.9}
+            wireframe
+          />
+        </Box>
+      </Float>
     </group>
   );
 }

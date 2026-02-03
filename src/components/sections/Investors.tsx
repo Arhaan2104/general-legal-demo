@@ -109,8 +109,8 @@ export function Investors() {
             <span
               className="w-6 h-6 rounded flex items-center justify-center font-bold text-sm"
               style={{
-                backgroundColor: "var(--accent)",
-                color: "var(--bg-primary)",
+                backgroundColor: "#FF6600",
+                color: "#FFFFFF",
               }}
             >
               Y
