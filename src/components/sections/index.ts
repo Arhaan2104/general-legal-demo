@@ -1,0 +1,10 @@
+export { Hero } from "./Hero";
+export { Investors } from "./Investors";
+export { ProblemStatement } from "./ProblemStatement";
+export { HowItWorks } from "./HowItWorks";
+export { Services } from "./Services";
+export { Pricing } from "./Pricing";
+export { AIAdvantage } from "./AIAdvantage";
+export { Trust } from "./Trust";
+export { FAQ } from "./FAQ";
+export { FinalCTA } from "./FinalCTA";
