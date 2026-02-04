@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Navigation, Footer } from "./components/layout";
 import { HomePage, TheFirm, Attorneys, Contact, Careers } from "./pages";
 import { useTheme } from "./hooks/useTheme";
@@ -51,6 +52,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppContent />
+      <Analytics />
     </BrowserRouter>
   );
 }

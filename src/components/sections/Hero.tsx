@@ -1,17 +1,7 @@
 import { motion } from "motion/react";
-import { Sparkles } from "lucide-react";
 import { EmailCapture } from "../ui/EmailCapture";
 import { HeroScene } from "../three/HeroScene";
 import { HERO_CONTENT } from "../../lib/constants";
-
-const COMPANY_LOGOS = [
-  "Stripe",
-  "Notion",
-  "Linear",
-  "Vercel",
-  "Figma",
-  "Loom",
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -61,21 +51,6 @@ export function Hero() {
             animate="visible"
             className="lg:col-span-5"
           >
-            {/* Badge */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
-                style={{
-                  backgroundColor: 'var(--bg-secondary)',
-                  color: 'var(--text-secondary)',
-                  border: '1px solid var(--border)'
-                }}
-              >
-                <Sparkles className="w-4 h-4" style={{ color: 'var(--accent)' }} />
-                {HERO_CONTENT.badge}
-              </span>
-            </motion.div>
-
             {/* Headline */}
             <motion.h1 variants={itemVariants} className="text-hero mb-6">
               <span className="whitespace-nowrap">The AI Native</span>
@@ -93,30 +68,11 @@ export function Hero() {
             </motion.p>
 
             {/* Email Capture CTA */}
-            <motion.div variants={itemVariants} className="mb-10 sm:mb-12 md:mb-16">
+            <motion.div variants={itemVariants}>
               <EmailCapture
                 placeholder="Enter your email"
                 buttonText="Get Started"
               />
-            </motion.div>
-
-            {/* Trust Section */}
-            <motion.div variants={itemVariants}>
-              <p className="text-label mb-6">{HERO_CONTENT.trustText}</p>
-              <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-3 sm:gap-y-4">
-                {COMPANY_LOGOS.map((company, i) => (
-                  <motion.span
-                    key={company}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.4 }}
-                    transition={{ delay: 1 + i * 0.1 }}
-                    className="text-sm font-medium tracking-wide"
-                    style={{ color: 'var(--text-tertiary)' }}
-                  >
-                    {company}
-                  </motion.span>
-                ))}
-              </div>
             </motion.div>
           </motion.div>
 
