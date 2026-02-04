@@ -19,7 +19,7 @@ export function TheFirm() {
     <main>
       {/* Hero Section */}
       <section
-        className="pt-32 pb-20 md:pt-40 md:pb-28"
+        className="pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28"
         style={{ backgroundColor: "var(--bg-primary)" }}
       >
         <Container>
@@ -37,7 +37,7 @@ export function TheFirm() {
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl leading-relaxed"
               style={{ color: "var(--text-secondary)" }}
             >
               {THE_FIRM_CONTENT.hero.subheadline}
@@ -82,7 +82,7 @@ export function TheFirm() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8"
         >
           {THE_FIRM_CONTENT.services.items.map((service, index) => {
             const Icon = serviceIcons[service.title as keyof typeof serviceIcons] || FileText;
@@ -90,14 +90,14 @@ export function TheFirm() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="p-8 rounded-2xl"
+                className="p-5 sm:p-6 md:p-8 rounded-2xl"
                 style={{
                   backgroundColor: "var(--bg-secondary)",
                   border: "1px solid var(--border)",
                 }}
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-6"
                   style={{ backgroundColor: "var(--accent-muted)" }}
                 >
                   <Icon

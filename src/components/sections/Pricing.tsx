@@ -36,7 +36,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
       <Container>
@@ -47,7 +47,7 @@ export function Pricing() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-10 sm:mb-12 md:mb-16">
             <h2 className="text-section mb-6">{PRICING_CONTENT.headline}</h2>
             <p
               className="text-lg md:text-xl max-w-2xl mx-auto"
@@ -71,7 +71,7 @@ export function Pricing() {
 
               {/* Featured Card */}
               <div
-                className="relative rounded-2xl p-8 md:p-10 text-center"
+                className="relative rounded-2xl p-6 sm:p-8 md:p-10 text-center"
                 style={{
                   backgroundColor: "var(--bg-secondary)",
                   border: "2px solid var(--accent)",
@@ -87,9 +87,9 @@ export function Pricing() {
                 </h3>
 
                 {/* Price */}
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <span
-                    className="font-mono text-5xl md:text-6xl font-bold"
+                    className="font-mono text-4xl sm:text-5xl md:text-6xl font-bold"
                     style={{ color: "var(--text-primary)" }}
                   >
                     {featuredService.price}
@@ -124,7 +124,7 @@ export function Pricing() {
           {/* Secondary Services Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto"
           >
             {secondaryServices.map((service, index) => (
               <motion.div
@@ -137,7 +137,7 @@ export function Pricing() {
                   duration: 0.4,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group rounded-xl p-6 text-center transition-all duration-300 hover:translate-y-[-2px]"
+                className="group rounded-xl p-4 sm:p-5 md:p-6 text-center transition-all duration-300 hover:translate-y-[-2px]"
                 style={{
                   backgroundColor: "var(--bg-secondary)",
                   border: "1px solid var(--border)",
@@ -152,9 +152,9 @@ export function Pricing() {
                 </h4>
 
                 {/* Price */}
-                <div className="mb-3">
+                <div className="mb-2 sm:mb-3">
                   <span
-                    className="font-mono text-2xl md:text-3xl font-bold transition-colors duration-300 group-hover:text-[var(--accent)]"
+                    className="font-mono text-xl sm:text-2xl md:text-3xl font-bold transition-colors duration-300 group-hover:text-[var(--accent)]"
                     style={{ color: "var(--text-primary)" }}
                   >
                     {service.price}

@@ -56,10 +56,10 @@ export function Footer() {
       }}
     >
       <Container>
-        <div className="py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="py-12 sm:py-16 md:py-20">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 md:gap-12">
             {/* Brand Column */}
-            <div className="lg:col-span-2">
+            <div className="col-span-2 lg:col-span-2">
               <Link to="/" className="inline-block">
                 <span
                   className="font-display text-2xl font-medium"
@@ -75,12 +75,12 @@ export function Footer() {
                 {FOOTER_CONTENT.tagline}
               </p>
               {/* Social Links */}
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-3 sm:gap-4 mt-6">
                 <a
                   href={FOOTER_CONTENT.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full transition-colors"
+                  className="p-3 sm:p-2 rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                   style={{
                     backgroundColor: "var(--bg-tertiary)",
                     color: "var(--text-secondary)",
@@ -93,7 +93,7 @@ export function Footer() {
                   href={FOOTER_CONTENT.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full transition-colors"
+                  className="p-3 sm:p-2 rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                   style={{
                     backgroundColor: "var(--bg-tertiary)",
                     color: "var(--text-secondary)",
@@ -154,7 +154,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div
-          className="py-6 flex flex-col md:flex-row items-center justify-between gap-4"
+          className="py-4 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4"
           style={{ borderTop: "1px solid var(--border)" }}
         >
           <p className="text-sm" style={{ color: "var(--text-tertiary)" }}>

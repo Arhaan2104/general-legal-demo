@@ -16,7 +16,7 @@ export function FAQ() {
 
       <motion.div
         variants={fadeInUp}
-        className="rounded-2xl p-8"
+        className="rounded-2xl p-4 sm:p-6 md:p-8"
         style={{
           backgroundColor: "var(--bg-primary)",
           border: "1px solid var(--border)",

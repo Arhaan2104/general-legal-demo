@@ -52,7 +52,7 @@ export function Hero() {
       />
 
       {/* Main content grid */}
-      <div className="container relative z-10 pt-32 pb-20">
+      <div className="container relative z-10 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20">
         <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
           {/* Text Content - 5 columns */}
           <motion.div
@@ -93,7 +93,7 @@ export function Hero() {
             </motion.p>
 
             {/* Email Capture CTA */}
-            <motion.div variants={itemVariants} className="mb-16">
+            <motion.div variants={itemVariants} className="mb-10 sm:mb-12 md:mb-16">
               <EmailCapture
                 placeholder="Enter your email"
                 buttonText="Get Started"
@@ -103,7 +103,7 @@ export function Hero() {
             {/* Trust Section */}
             <motion.div variants={itemVariants}>
               <p className="text-label mb-6">{HERO_CONTENT.trustText}</p>
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-3 sm:gap-y-4">
                 {COMPANY_LOGOS.map((company, i) => (
                   <motion.span
                     key={company}
@@ -127,12 +127,12 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - hidden on mobile for more content space */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

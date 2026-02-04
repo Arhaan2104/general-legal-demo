@@ -43,7 +43,7 @@ function ComparisonCard({
       className="relative group"
     >
       <div
-        className="h-full rounded-2xl p-8 md:p-10 transition-all duration-300"
+        className="h-full rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 transition-all duration-300"
         style={{
           backgroundColor: "var(--bg-tertiary)",
           border: "1px solid var(--border)",
@@ -61,14 +61,14 @@ function ComparisonCard({
 
         {/* Title */}
         <h3
-          className="text-xl md:text-2xl font-medium mb-8"
+          className="text-lg sm:text-xl md:text-2xl font-medium mb-5 sm:mb-6 md:mb-8"
           style={{ color: "var(--text-primary)" }}
         >
           {title}
         </h3>
 
         {/* Points */}
-        <ul className="space-y-5">
+        <ul className="space-y-3 sm:space-y-4 md:space-y-5">
           {points.map((point, index) => (
             <motion.li
               key={index}
@@ -120,7 +120,7 @@ export function Comparison() {
   return (
     <section
       id="comparison"
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
     >
       <Container>
         <motion.div
@@ -132,13 +132,13 @@ export function Comparison() {
           {/* Headline */}
           <motion.h2
             variants={itemVariants}
-            className="text-section text-center mb-16"
+            className="text-section text-center mb-8 sm:mb-12 md:mb-16"
           >
             {COMPARISON_CONTENT.headline}
           </motion.h2>
 
           {/* Comparison Grid */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             <ComparisonCard
               title={COMPARISON_CONTENT.generalLegal.title}
               points={COMPARISON_CONTENT.generalLegal.points}

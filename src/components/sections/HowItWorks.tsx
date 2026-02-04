@@ -31,14 +31,14 @@ function TimelineStep({
 
       {/* Step content - consistent layout: Text | Dot | Image */}
       <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-8 lg:gap-16 items-center">
-        {/* Left - Text content */}
+        {/* Text content - always on left */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="lg:text-right"
         >
-          <div className="lg:ml-auto max-w-md">
+          <div className="max-w-md lg:ml-auto">
             {/* Step number */}
             <span
               className="text-sm font-medium tracking-wider mb-2 block"
@@ -92,14 +92,14 @@ function TimelineStep({
           />
         </motion.div>
 
-        {/* Right - Image placeholder */}
+        {/* Image placeholder - always on right */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
           <div
-            className="relative p-6 md:p-8 rounded-2xl overflow-hidden"
+            className="relative p-5 sm:p-6 md:p-8 rounded-2xl overflow-hidden"
             style={{
               backgroundColor: "var(--bg-secondary)",
               border: "1px solid var(--border)",
@@ -175,7 +175,7 @@ export function HowItWorks() {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
       <Container>
@@ -185,7 +185,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-24"
+          className="text-center mb-10 sm:mb-14 md:mb-20 lg:mb-24"
         >
           <h2 className="text-section mb-6">{HOW_IT_WORKS_CONTENT.headline}</h2>
           {HOW_IT_WORKS_CONTENT.subheadline && (
@@ -213,7 +213,7 @@ export function HowItWorks() {
           </div>
 
           {/* Steps */}
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-10 sm:space-y-14 md:space-y-20 lg:space-y-24">
             {HOW_IT_WORKS_CONTENT.steps.map((step, index) => (
               <TimelineStep
                 key={step.number}

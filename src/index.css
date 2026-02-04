@@ -350,6 +350,14 @@ body {
   box-shadow: var(--shadow-lg), 0 0 40px rgba(196, 174, 134, 0.3);
 }
 
+/* Mobile: Touch-friendly button sizing */
+@media (max-width: 768px) {
+  .btn {
+    padding: 1rem 1.5rem;
+    min-height: 48px;
+  }
+}
+
 /* ============================================
    CONTAINER & SECTIONS
    ============================================ */
@@ -398,6 +406,36 @@ body {
   [data-theme="dark"] {
     --section-padding: 64px;
     --container-padding: 16px;
+  }
+
+  /* Mobile typography - ensure 16px minimum */
+  .text-body {
+    font-size: 1rem;
+  }
+
+  .text-body-lg {
+    font-size: 1.0625rem;
+  }
+
+  .text-label {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Small phones (iPhone SE, small Android) */
+@media (max-width: 380px) {
+  :root,
+  [data-theme="dark"] {
+    --section-padding: 48px;
+    --container-padding: 12px;
+  }
+
+  .text-hero {
+    font-size: clamp(1.875rem, 9vw, 2.5rem);
+  }
+
+  .text-section {
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 }
 
