@@ -14,7 +14,7 @@ export function Attorneys() {
     <main>
       {/* Hero Section */}
       <section
-        className="pt-32 pb-20 md:pt-40 md:pb-28"
+        className="pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28"
         style={{ backgroundColor: "var(--bg-primary)" }}
       >
         <Container>
@@ -32,7 +32,7 @@ export function Attorneys() {
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl leading-relaxed"
               style={{ color: "var(--text-secondary)" }}
             >
               {ATTORNEYS_CONTENT.hero.subheadline}
@@ -48,7 +48,7 @@ export function Attorneys() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-16"
         >
           <motion.h2
             variants={fadeInUp}
@@ -70,7 +70,7 @@ export function Attorneys() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
         >
           {ATTORNEYS_CONTENT.team.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index];
@@ -78,14 +78,14 @@ export function Attorneys() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="p-8 rounded-2xl text-center"
+                className="p-5 sm:p-6 md:p-8 rounded-2xl text-center"
                 style={{
                   backgroundColor: "var(--bg-primary)",
                   border: "1px solid var(--border)",
                 }}
               >
                 <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 mx-auto"
+                  className="w-12 sm:w-14 h-12 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 mx-auto"
                   style={{ backgroundColor: "var(--accent-muted)" }}
                 >
                   <Icon

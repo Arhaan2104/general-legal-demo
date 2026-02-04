@@ -139,7 +139,7 @@ export function Navigation({ theme, toggleTheme }: NavigationProps) {
     const className = cn(
       isMobile
         ? cn(
-            "block text-lg font-medium py-3 transition-colors relative",
+            "block text-lg font-medium py-4 transition-colors relative min-h-[48px] flex items-center",
             isActive && "pl-4"
           )
         : cn(
@@ -266,11 +266,11 @@ export function Navigation({ theme, toggleTheme }: NavigationProps) {
             </div>
 
             {/* Mobile Actions */}
-            <div className="flex md:hidden items-center gap-2">
+            <div className="flex md:hidden items-center gap-1">
               <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
               <motion.button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2"
+                className="p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 style={{ color: "var(--text-primary)" }}
                 aria-label="Toggle menu"
                 whileTap={{ scale: 0.9 }}

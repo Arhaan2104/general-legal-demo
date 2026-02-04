@@ -3,7 +3,7 @@ import { Container } from "../ui/Container";
 
 // Y Combinator logo - official orange Y mark
 const YCombinatorLogo = () => (
-  <svg viewBox="0 0 200 50" className="h-8 md:h-10 w-auto">
+  <svg viewBox="0 0 200 50" className="h-6 sm:h-8 md:h-10 w-auto">
     <rect x="0" y="5" width="40" height="40" rx="4" fill="#FF6600" />
     <text
       x="20"
@@ -31,7 +31,7 @@ const YCombinatorLogo = () => (
 
 // SUSA Ventures logo
 const SUSALogo = () => (
-  <svg viewBox="0 0 140 40" className="h-7 md:h-9 w-auto">
+  <svg viewBox="0 0 140 40" className="h-5 sm:h-7 md:h-9 w-auto">
     <text
       x="0"
       y="28"
@@ -60,7 +60,7 @@ const SUSALogo = () => (
 
 // AME Cloud Ventures logo
 const AMECloudLogo = () => (
-  <svg viewBox="0 0 180 45" className="h-8 md:h-10 w-auto">
+  <svg viewBox="0 0 180 45" className="h-6 sm:h-8 md:h-10 w-auto">
     <defs>
       <linearGradient id="ameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#4A90D9" />
@@ -100,7 +100,7 @@ const AMECloudLogo = () => (
 
 // Box Group logo
 const BoxGroupLogo = () => (
-  <svg viewBox="0 0 130 45" className="h-8 md:h-10 w-auto">
+  <svg viewBox="0 0 130 45" className="h-6 sm:h-8 md:h-10 w-auto">
     {/* Stylized box icon */}
     <rect
       x="2"
@@ -183,7 +183,7 @@ const itemVariants = {
 
 export function Investors() {
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section className="relative py-12 sm:py-14 md:py-16 overflow-hidden">
       {/* Top gradient border */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
@@ -204,7 +204,7 @@ export function Investors() {
           {/* Label */}
           <motion.p
             variants={itemVariants}
-            className="text-label mb-10"
+            className="text-label mb-6 sm:mb-8 md:mb-10"
             style={{ color: "var(--text-tertiary)" }}
           >
             BACKED BY GREAT INVESTORS
@@ -213,7 +213,7 @@ export function Investors() {
           {/* Investor logos */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 md:gap-y-8"
+            className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-14 gap-y-5 sm:gap-y-6 md:gap-y-8"
           >
             {INVESTORS.map((investor, index) => (
               <motion.div
@@ -227,7 +227,7 @@ export function Investors() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{ scale: 1.05 }}
-                className="group relative px-4 py-3 transition-all duration-300"
+                className="group relative px-3 sm:px-4 py-2 sm:py-3 transition-all duration-300"
                 style={{
                   color: "var(--text-secondary)",
                   opacity: 0.7,

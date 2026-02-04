@@ -35,7 +35,7 @@ export function Contact() {
     <main>
       {/* Hero Section */}
       <section
-        className="pt-32 pb-20 md:pt-40 md:pb-28"
+        className="pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-28"
         style={{ backgroundColor: "var(--bg-primary)" }}
       >
         <Container>
@@ -50,7 +50,7 @@ export function Contact() {
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl leading-relaxed"
               style={{ color: "var(--text-secondary)" }}
             >
               {CONTACT_CONTENT.hero.subheadline}
@@ -61,7 +61,7 @@ export function Contact() {
 
       {/* Contact Content */}
       <Section background="secondary">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
           {/* Contact Info */}
           <motion.div
             variants={staggerContainer}
@@ -71,7 +71,7 @@ export function Contact() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-2xl font-display font-medium mb-8"
+              className="text-xl sm:text-2xl font-display font-medium mb-6 sm:mb-8"
               style={{ color: "var(--text-primary)" }}
             >
               Get in Touch
@@ -180,7 +180,7 @@ export function Contact() {
                   href={CONTACT_CONTENT.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
+                  className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] rounded-lg flex items-center justify-center transition-colors"
                   style={{
                     backgroundColor: "var(--bg-primary)",
                     border: "1px solid var(--border)",
@@ -193,7 +193,7 @@ export function Contact() {
                   href={CONTACT_CONTENT.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
+                  className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] rounded-lg flex items-center justify-center transition-colors"
                   style={{
                     backgroundColor: "var(--bg-primary)",
                     border: "1px solid var(--border)",
@@ -224,20 +224,20 @@ export function Contact() {
           >
             <motion.div
               variants={fadeInUp}
-              className="p-8 rounded-2xl"
+              className="p-5 sm:p-6 md:p-8 rounded-2xl"
               style={{
                 backgroundColor: "var(--bg-primary)",
                 border: "1px solid var(--border)",
               }}
             >
               <h2
-                className="text-2xl font-display font-medium mb-6"
+                className="text-xl sm:text-2xl font-display font-medium mb-5 sm:mb-6"
                 style={{ color: "var(--text-primary)" }}
               >
                 {CONTACT_CONTENT.form.headline}
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 <div>
                   <label
                     htmlFor="name"
@@ -323,8 +323,8 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg transition-colors outline-none resize-none"
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-lg transition-colors outline-none resize-none sm:min-h-[140px]"
                     style={{
                       backgroundColor: "var(--bg-secondary)",
                       border: "1px solid var(--border)",

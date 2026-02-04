@@ -237,8 +237,8 @@ export const FAQ_CONTENT = {
 };
 
 export const FINAL_CTA_CONTENT = {
-  headline:
-    "Experienced attorneys on your contracts from review to signature for $500/contract. Turns in 3 hours or less.",
+  headline: "Experienced attorneys on your contracts from review to signature for $500/contract.",
+  subline: "Turns in 3 hours or less.",
   cta: "Get Started",
   hasEmailInput: true,
 };
