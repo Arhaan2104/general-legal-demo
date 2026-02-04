@@ -1,5 +1,6 @@
 export { Hero } from "./Hero";
 export { Investors } from "./Investors";
+export { Comparison } from "./Comparison";
 export { ProblemStatement } from "./ProblemStatement";
 export { HowItWorks } from "./HowItWorks";
 export { Services } from "./Services";

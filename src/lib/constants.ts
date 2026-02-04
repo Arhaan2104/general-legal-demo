@@ -8,10 +8,11 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
+  { label: "The Firm", href: "/the-firm" },
+  { label: "Attorneys", href: "/attorneys" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const HERO_CONTENT = {
@@ -24,50 +25,59 @@ export const HERO_CONTENT = {
   trustText: "Trusted by 500+ companies",
 };
 
+// Legacy - keeping for backwards compatibility
 export const PROBLEM_CONTENT = {
   headline: "Legal Shouldn't Be a Black Box",
-  problems: [
-    {
-      title: "Unpredictable Bills",
-      description:
-        "Traditional hourly billing creates anxiety. You never know what you'll owe until it's too late.",
-      icon: "DollarSign",
-    },
-    {
-      title: "Slow Turnarounds",
-      description:
-        "Weeks waiting for simple contract reviews. Your business can't afford to wait.",
-      icon: "Clock",
-    },
-    {
-      title: "Outdated Processes",
-      description:
-        "Manual, paper-heavy workflows that don't match how modern businesses operate.",
-      icon: "FileX",
-    },
-  ],
+  problems: [] as { title: string; description: string; icon: string }[],
+};
+
+export const COMPARISON_CONTENT = {
+  headline: "General Legal vs Traditional Law Firm",
+  generalLegal: {
+    title: "General Legal",
+    points: [
+      "$500 per contract",
+      "Contract turns done in hours by experienced attorneys",
+      "Work directly with your lawyer in Slack",
+      "Experienced, U.S.-barred attorneys on every contract",
+    ],
+  },
+  traditional: {
+    title: "Traditional Law Firm",
+    points: [
+      "$1,000-$5,000+ per contract, billed hourly with unpredictable costs",
+      "Days or weeks to turn a contract",
+      "Email chains, handoffs, and unclear ownership",
+      "Junior-heavy staffing and slow reviews",
+    ],
+  },
 };
 
 export const HOW_IT_WORKS_CONTENT = {
-  headline: "Three Steps to Peace of Mind",
+  headline: "How It Works",
+  subheadline:
+    "General Legal pairs experienced contract law attorneys with technology built for speed, clarity, and better results.",
   steps: [
     {
       number: "01",
-      title: "Upload Your Contract",
+      title: "Free Consultation with a Lawyer",
       description:
-        "Simply drag and drop your contract or forward it to our secure email. We accept all common formats.",
+        "Start with a short consultation to explain your contract and business context. The lawyer will outline scope, timing, and pricing.",
+      icon: "Users",
     },
     {
       number: "02",
-      title: "AI + Attorney Review",
+      title: "Attorney-Led Contract Review",
       description:
-        "Our AI flags potential issues instantly. Then our experienced attorneys verify every finding and add their expertise.",
+        "Your lawyer drafts, reviews, or negotiates the contract directly. AI tools support speed and accuracy, but an experienced attorney is responsible for every deliverable.",
+      icon: "FileText",
     },
     {
       number: "03",
-      title: "Get Your Report",
+      title: "Flat, Predictable Pricing",
       description:
-        "Receive a clear, actionable report with risk assessments, recommended changes, and plain-English explanations.",
+        "You'll know the price up front for each contract. Most standard commercial contracts are turned in about one hour.",
+      icon: "DollarSign",
     },
   ],
 };
@@ -105,19 +115,37 @@ export const SERVICES_CONTENT = {
 };
 
 export const PRICING_CONTENT = {
-  headline: "Transparent Pricing. No Surprises.",
-  price: "$500",
-  priceSubtitle: "Per Contract Review",
-  features: [
-    "AI-powered initial analysis",
-    "Attorney review & recommendations",
-    "Comprehensive risk assessment",
-    "48-hour turnaround",
-    "Unlimited clarification questions",
-    "Direct attorney access",
+  headline: "Simple, Transparent Pricing",
+  subheadline:
+    "No hidden fees. No hourly billing surprises. Just straightforward pricing for quality legal work.",
+  services: [
+    {
+      service: "Contract Review",
+      scope: "Review, redline, and negotiate a contract between 3 and 50 pages",
+      price: "$500",
+      unit: "/ contract",
+    },
+    {
+      service: "Short Contract Review",
+      scope: "3 pages or fewer",
+      price: "$250",
+      unit: "/ contract",
+    },
+    {
+      service: "Long Contract Review",
+      scope: "50+ pages",
+      price: "$10",
+      unit: "/ page",
+    },
+    {
+      service: "Contract Drafting",
+      scope: "Draft a contract from scratch",
+      price: "$2,000",
+      unit: "/ contract",
+    },
   ],
-  cta: "Start Your Review",
-  note: "Enterprise plans available for high-volume needs",
+  cta: "Questions about pricing?",
+  ctaLink: "Contact us",
 };
 
 export const AI_ADVANTAGE_CONTENT = {
@@ -168,60 +196,64 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQ_CONTENT = {
-  headline: "Common Questions",
+  headline: "Frequently Asked Questions",
   faqs: [
     {
-      question: "What types of contracts do you review?",
+      question: "What are the hours of operation?",
       answer:
-        "We review all common commercial contracts including SaaS agreements, NDAs, employment contracts, vendor agreements, partnership agreements, and terms of service. If you're unsure, reach out and we'll let you know.",
+        "Our standard operating hours are 5:00 AM–6:00 PM PT, Monday through Friday, excluding federal holidays. During these hours, we typically deliver contract turns within one hour and guarantee a response and initial turn in under three hours. Outside of operating hours, we do our best to respond as quickly as possible, but turnaround times are not guaranteed.",
     },
     {
-      question: "How does AI fit into the review process?",
+      question: "What kinds of agreements can you help with?",
       answer:
-        "Our AI performs the initial analysis, scanning every clause against thousands of contract patterns to flag potential risks. Then our experienced attorneys review every AI finding, add their expertise, and create your final report.",
+        "We can help with any standard commercial agreements, including MSAs, DPAs, NDAs, vendor agreements, ToSs, EULAs, and more. Email us to setup a consultation.",
     },
     {
-      question: "What's included in the $500 fee?",
+      question: "In what jurisdictions do you practice?",
       answer:
-        "Everything. AI analysis, attorney review, comprehensive risk assessment, plain-English explanations, and unlimited follow-up questions. No hidden fees, no hourly billing surprises.",
+        "For commercial agreements, we currently support companies doing business in all US states.",
     },
     {
-      question: "How long does a review take?",
+      question: "How will I work with my lawyer?",
       answer:
-        "Standard turnaround is 48 hours from when we receive your contract. Need it faster? Contact us about expedited review options.",
+        "Our lawyers work where you work. Many of our clients use Slack and our lawyers can work with you or your legal team directly in your Slack. We can also support you over email, video-conference, or phone.",
     },
     {
-      question: "Who are the attorneys?",
+      question: "What is included in the contract review price?",
       answer:
-        "All our attorneys are U.S.-barred with experience at top law firms and in-house legal teams. They specialize in commercial contracts and understand the needs of growing businesses.",
+        "Everything. For our flat review price, our firm will support your contract through every turn all the way to signature. Our lawyers can even join a negotiation with the other side. We don't bill by the hour, there are no surprise fees, and no minimums. See our pricing for details.",
     },
     {
-      question: "What if I need changes after the review?",
+      question: "Can you draft a contract from scratch?",
       answer:
-        "Your report includes specific recommendations for changes. If you need help negotiating those changes or have follow-up questions, we're here to help at no extra charge.",
+        "Yes, we're happy to draft new commercial agreements. See our pricing page for our flat rate drafting fee.",
+    },
+    {
+      question: "Is my lawyer an AI?",
+      answer:
+        "No, we're a law firm that hires only highly-qualified, US barred attorneys. Our attorneys are trained to use our AI platforms to accelerate their work but all agreements handled by our firm are reviewed by an experienced human attorney.",
     },
   ],
 };
 
 export const FINAL_CTA_CONTENT = {
-  headline: "Ready to Simplify Your Legal?",
-  subheadline:
-    "Join hundreds of companies who've modernized their contract review.",
-  primaryCta: "Get Started — $500 Flat Fee",
-  secondaryCta: "Schedule a Call",
+  headline:
+    "Experienced attorneys on your contracts from review to signature for $500/contract. Turns in 3 hours or less.",
+  cta: "Get Started",
+  hasEmailInput: true,
 };
 
 export const FOOTER_CONTENT = {
   tagline: "AI-native legal services for modern businesses.",
   services: [
-    { label: "Contract Review", href: "#services" },
-    { label: "Negotiation Support", href: "#services" },
-    { label: "Legal Consultation", href: "#services" },
+    { label: "Contract Review", href: "/#services" },
+    { label: "Negotiation Support", href: "/#services" },
+    { label: "Legal Consultation", href: "/contact" },
   ],
   company: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Team", href: "#team" },
-    { label: "Blog", href: "#blog" },
+    { label: "The Firm", href: "/the-firm" },
+    { label: "Attorneys", href: "/attorneys" },
+    { label: "Careers", href: "/careers" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -229,11 +261,160 @@ export const FOOTER_CONTENT = {
     { label: "Bar Information", href: "/bar" },
   ],
   contact: {
-    email: "hello@general.legal",
-    phone: "(555) 123-4567",
+    email: "info@general.legal",
   },
   social: {
     linkedin: "https://linkedin.com/company/general-legal",
-    twitter: "https://twitter.com/generallegal",
+    twitter: "https://twitter.com/gen_legal_inc",
+  },
+};
+
+// Page Content for Subpages
+export const THE_FIRM_CONTENT = {
+  hero: {
+    headline: "The Firm",
+    subheadline:
+      "An AI-native law firm providing flat-fee commercial contract review, negotiation, and legal advice by experienced U.S.-barred attorneys.",
+  },
+  mission: {
+    headline: "Built for the Modern Business",
+    description:
+      "General Legal was founded with a simple belief: legal services should be fast, transparent, and affordable. We combine experienced attorneys with AI-powered tools to deliver exceptional results at a fraction of traditional costs.",
+  },
+  services: {
+    headline: "What We Do",
+    items: [
+      {
+        title: "Commercial Contract Review",
+        description:
+          "Expert review of SaaS agreements, vendor contracts, NDAs, and more. Every contract is reviewed by experienced U.S.-barred attorneys.",
+      },
+      {
+        title: "Contract Negotiation",
+        description:
+          "We negotiate on your behalf, working directly with counterparties to secure favorable terms while protecting your interests.",
+      },
+      {
+        title: "Business Law",
+        description:
+          "General legal counsel for growing businesses, from entity formation to compliance questions.",
+      },
+      {
+        title: "Outside Counsel Services",
+        description:
+          "Flexible legal support that scales with your business. No retainers, no minimum hours—just quality legal work when you need it.",
+      },
+    ],
+  },
+  cta: {
+    headline: "Ready to get started?",
+    description:
+      "Schedule a free consultation to discuss your contract needs.",
+    button: "Contact Us",
+  },
+};
+
+export const ATTORNEYS_CONTENT = {
+  hero: {
+    headline: "Our Attorneys",
+    subheadline:
+      "Every contract at General Legal is handled by experienced, U.S.-barred attorneys who combine legal expertise with modern tools.",
+  },
+  team: {
+    headline: "Experienced Legal Professionals",
+    description:
+      "Our attorneys bring years of experience from top law firms and in-house legal departments. They're trained to use AI-powered tools to work faster and more accurately—but every decision, every negotiation, and every deliverable is the work of a qualified human attorney.",
+    highlights: [
+      {
+        title: "U.S.-Barred Attorneys",
+        description:
+          "Every attorney on our team is licensed to practice law in the United States.",
+      },
+      {
+        title: "Commercial Contract Specialists",
+        description:
+          "Our team focuses exclusively on commercial agreements, building deep expertise in the contracts that matter to growing businesses.",
+      },
+      {
+        title: "Technology-Enabled",
+        description:
+          "Our attorneys are trained to leverage AI tools for speed and accuracy, while maintaining the judgment that only experienced lawyers can provide.",
+      },
+    ],
+  },
+  cta: {
+    headline: "Work with our team",
+    description: "Get started with a free consultation.",
+    button: "Get in Touch",
+  },
+};
+
+export const CONTACT_CONTENT = {
+  hero: {
+    headline: "Contact Us",
+    subheadline:
+      "Have questions about our services? Ready to get started? We'd love to hear from you.",
+  },
+  info: {
+    email: "info@general.legal",
+    hours: "5:00 AM – 6:00 PM PT, Monday – Friday",
+    response: "We typically respond within one business day.",
+  },
+  form: {
+    headline: "Send us a message",
+    fields: {
+      name: "Your Name",
+      email: "Email Address",
+      company: "Company Name",
+      message: "How can we help?",
+    },
+    button: "Send Message",
+  },
+  social: {
+    headline: "Connect with us",
+    linkedin: "https://linkedin.com/company/general-legal",
+    twitter: "https://twitter.com/gen_legal_inc",
+  },
+};
+
+export const CAREERS_CONTENT = {
+  hero: {
+    headline: "Careers",
+    subheadline:
+      "Join an AI-native law firm that's reimagining how legal services are delivered.",
+  },
+  culture: {
+    headline: "Why General Legal",
+    description:
+      "We're building the future of legal services—combining experienced attorneys with cutting-edge AI to deliver better outcomes for growing businesses. If you're excited about transforming an industry, we'd love to hear from you.",
+    values: [
+      {
+        title: "Innovation First",
+        description:
+          "We embrace technology to work smarter, not harder. Our attorneys use AI tools to deliver faster, more accurate results.",
+      },
+      {
+        title: "Client Obsessed",
+        description:
+          "We measure success by client outcomes. Transparent pricing, fast turnarounds, and exceptional quality are non-negotiable.",
+      },
+      {
+        title: "Continuous Learning",
+        description:
+          "The legal industry is evolving rapidly. We invest in our team's growth and stay at the forefront of legal technology.",
+      },
+    ],
+  },
+  openings: {
+    headline: "Open Positions",
+    empty:
+      "We don't have any open positions at the moment, but we're always interested in hearing from talented attorneys and legal professionals.",
+    cta: "Send your resume to careers@general.legal",
+  },
+  cta: {
+    headline: "Interested in joining us?",
+    description:
+      "Even if we don't have an open role that matches your background, we'd love to hear from you.",
+    button: "Get in Touch",
   },
 };

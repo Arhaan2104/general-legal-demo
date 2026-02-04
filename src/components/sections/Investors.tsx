@@ -1,11 +1,161 @@
 import { motion } from "motion/react";
 import { Container } from "../ui/Container";
 
+// Y Combinator logo - official orange Y mark
+const YCombinatorLogo = () => (
+  <svg viewBox="0 0 200 50" className="h-8 md:h-10 w-auto">
+    <rect x="0" y="5" width="40" height="40" rx="4" fill="#FF6600" />
+    <text
+      x="20"
+      y="35"
+      textAnchor="middle"
+      fill="white"
+      fontFamily="Arial, sans-serif"
+      fontWeight="bold"
+      fontSize="28"
+    >
+      Y
+    </text>
+    <text
+      x="52"
+      y="32"
+      fill="currentColor"
+      fontFamily="Arial, sans-serif"
+      fontWeight="500"
+      fontSize="18"
+    >
+      Combinator
+    </text>
+  </svg>
+);
+
+// SUSA Ventures logo
+const SUSALogo = () => (
+  <svg viewBox="0 0 140 40" className="h-7 md:h-9 w-auto">
+    <text
+      x="0"
+      y="28"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, sans-serif"
+      fontWeight="700"
+      fontSize="24"
+      letterSpacing="0.15em"
+    >
+      SUSA
+    </text>
+    <text
+      x="0"
+      y="38"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, sans-serif"
+      fontWeight="400"
+      fontSize="8"
+      letterSpacing="0.2em"
+      opacity="0.7"
+    >
+      VENTURES
+    </text>
+  </svg>
+);
+
+// AME Cloud Ventures logo
+const AMECloudLogo = () => (
+  <svg viewBox="0 0 180 45" className="h-8 md:h-10 w-auto">
+    <defs>
+      <linearGradient id="ameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#4A90D9" />
+        <stop offset="100%" stopColor="#67B8DE" />
+      </linearGradient>
+    </defs>
+    {/* Cloud icon */}
+    <path
+      d="M35 28c0 3.3-2.7 6-6 6H12c-4.4 0-8-3.6-8-8 0-4 3-7.4 7-7.9 0-.4-.1-.7-.1-1.1 0-5 4-9 9-9 4.3 0 7.9 3 8.8 7 .4-.1.8-.1 1.3-.1 3.9 0 7 3.1 7 7 0 1.1-.3 2.1-.7 3 .5.9.7 1.9.7 3.1z"
+      fill="url(#ameGradient)"
+    />
+    <text
+      x="45"
+      y="22"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, sans-serif"
+      fontWeight="700"
+      fontSize="18"
+      letterSpacing="0.05em"
+    >
+      AME
+    </text>
+    <text
+      x="45"
+      y="36"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, sans-serif"
+      fontWeight="400"
+      fontSize="10"
+      letterSpacing="0.15em"
+      opacity="0.7"
+    >
+      CLOUD VENTURES
+    </text>
+  </svg>
+);
+
+// Box Group logo
+const BoxGroupLogo = () => (
+  <svg viewBox="0 0 130 45" className="h-8 md:h-10 w-auto">
+    {/* Stylized box icon */}
+    <rect
+      x="2"
+      y="10"
+      width="24"
+      height="24"
+      rx="3"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+    />
+    <line
+      x1="2"
+      y1="22"
+      x2="26"
+      y2="22"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <line
+      x1="14"
+      y1="10"
+      x2="14"
+      y2="34"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <text
+      x="35"
+      y="20"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, sans-serif"
+      fontWeight="600"
+      fontSize="14"
+    >
+      BOX
+    </text>
+    <text
+      x="35"
+      y="34"
+      fill="currentColor"
+      fontFamily="system-ui, -apple-system, sans-serif"
+      fontWeight="600"
+      fontSize="14"
+    >
+      GROUP
+    </text>
+  </svg>
+);
+
 const INVESTORS = [
-  { name: "SUSA Ventures", logo: "SUSA" },
-  { name: "Y Combinator", logo: "Y Combinator" },
-  { name: "AME Cloud Ventures", logo: "AME CLOUD" },
-  { name: "Box Group", logo: "Box Group" },
+  { name: "Y Combinator", Logo: YCombinatorLogo },
+  { name: "SUSA Ventures", Logo: SUSALogo },
+  { name: "AME Cloud Ventures", Logo: AMECloudLogo },
+  { name: "Box Group", Logo: BoxGroupLogo },
 ];
 
 const containerVariants = {
@@ -63,7 +213,7 @@ export function Investors() {
           {/* Investor logos */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 mb-10"
+            className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 md:gap-y-8"
           >
             {INVESTORS.map((investor, index) => (
               <motion.div
@@ -77,17 +227,15 @@ export function Investors() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{ scale: 1.05 }}
-                className="group relative px-6 py-3"
+                className="group relative px-4 py-3 transition-all duration-300"
+                style={{
+                  color: "var(--text-secondary)",
+                  opacity: 0.7,
+                }}
               >
-                <span
-                  className="text-lg md:text-xl font-medium tracking-wide transition-all duration-300 group-hover:opacity-100"
-                  style={{
-                    color: "var(--text-secondary)",
-                    opacity: 0.6,
-                  }}
-                >
-                  {investor.logo}
-                </span>
+                <div className="transition-opacity duration-300 group-hover:opacity-100">
+                  <investor.Logo />
+                </div>
                 {/* Hover glow effect */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg blur-xl -z-10"
@@ -95,32 +243,6 @@ export function Investors() {
                 />
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Y Combinator badge */}
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
-            style={{
-              backgroundColor: "var(--bg-secondary)",
-              border: "1px solid var(--border)",
-            }}
-          >
-            <span
-              className="w-6 h-6 rounded flex items-center justify-center font-bold text-sm"
-              style={{
-                backgroundColor: "#FF6600",
-                color: "#FFFFFF",
-              }}
-            >
-              Y
-            </span>
-            <span
-              className="text-sm font-medium"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Y Combinator W24 Batch
-            </span>
           </motion.div>
         </motion.div>
       </Container>
