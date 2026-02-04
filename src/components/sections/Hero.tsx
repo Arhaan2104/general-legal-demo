@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { Button } from "../ui/Button";
+import { Sparkles } from "lucide-react";
+import { EmailCapture } from "../ui/EmailCapture";
 import { HeroScene } from "../three/HeroScene";
 import { HERO_CONTENT } from "../../lib/constants";
 
@@ -92,15 +92,12 @@ export function Hero() {
               {HERO_CONTENT.subheadline}
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Button variant="primary" size="lg" className="whitespace-nowrap">
-                {HERO_CONTENT.primaryCta}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button variant="secondary" size="lg" className="whitespace-nowrap">
-                {HERO_CONTENT.secondaryCta}
-              </Button>
+            {/* Email Capture CTA */}
+            <motion.div variants={itemVariants} className="mb-16">
+              <EmailCapture
+                placeholder="Enter your email"
+                buttonText="Get Started"
+              />
             </motion.div>
 
             {/* Trust Section */}

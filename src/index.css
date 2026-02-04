@@ -406,14 +406,53 @@ body {
    ============================================ */
 
 .nav-blur {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-blur.nav-scrolled {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 [data-theme="dark"] .nav-blur {
-  background-color: rgba(10, 10, 10, 0.85);
+  background-color: rgba(10, 10, 10, 0.8);
+}
+
+[data-theme="dark"] .nav-blur.nav-scrolled {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Nav link hover effects */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--text-primary) !important;
+}
+
+.nav-link-active {
+  color: var(--text-primary) !important;
+}
+
+.nav-link-active::after {
+  width: 100%;
 }
 
 /* ============================================
@@ -512,4 +551,133 @@ html.lenis body {
 
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-strong) 15%,
+    var(--border-strong) 85%,
+    transparent
+  );
+  margin: 0 auto;
+  max-width: 70%;
+}
+
+.section-divider-full {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-strong) 5%,
+    var(--border-strong) 95%,
+    transparent
+  );
+}
+
+/* ============================================
+   EMAIL CAPTURE COMPONENT
+   ============================================ */
+
+.email-capture-wrapper {
+  width: 100%;
+  max-width: 480px;
+}
+
+.email-capture-border {
+  position: relative;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--border-strong),
+    var(--accent),
+    var(--border-strong),
+    var(--accent),
+    var(--border-strong)
+  );
+  background-size: 300% 100%;
+  animation: border-shimmer 4s ease-in-out infinite;
+}
+
+.email-capture-border-active {
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-hover),
+    var(--accent),
+    var(--accent-hover),
+    var(--accent)
+  );
+  background-size: 300% 100%;
+  animation: border-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes border-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.email-capture-inner {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+}
+
+@media (min-width: 480px) {
+  .email-capture-inner {
+    flex-direction: row;
+  }
+}
+
+.email-capture-input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.email-capture-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.email-capture-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  background-color: var(--accent);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.email-capture-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.email-capture-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

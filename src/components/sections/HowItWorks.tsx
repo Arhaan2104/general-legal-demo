@@ -1,24 +1,23 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
-import { Upload, Bot, FileCheck } from "lucide-react";
+import { Users, FileText, DollarSign } from "lucide-react";
 import { Container } from "../ui/Container";
 import { HOW_IT_WORKS_CONTENT } from "../../lib/constants";
 
-const stepIcons = [Upload, Bot, FileCheck];
+const stepIcons = [Users, FileText, DollarSign];
 
 function TimelineStep({
   step,
   index,
   isLast,
 }: {
-  step: { number: string; title: string; description: string };
+  step: { number: string; title: string; description: string; icon: string };
   index: number;
   isLast: boolean;
 }) {
   const Icon = stepIcons[index];
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const isEven = index % 2 === 0;
 
   return (
     <div ref={ref} className="relative">
@@ -30,16 +29,16 @@ function TimelineStep({
         />
       )}
 
-      {/* Step content */}
+      {/* Step content - consistent layout: Text | Dot | Image */}
       <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-8 lg:gap-16 items-center">
-        {/* Left content (shows on even, empty on odd for desktop) */}
+        {/* Left - Text content */}
         <motion.div
-          initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -50 : 50 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className={`${isEven ? "lg:text-right" : "lg:order-3"}`}
+          className="lg:text-right"
         >
-          <div className={`${isEven ? "lg:ml-auto" : ""} max-w-md`}>
+          <div className="lg:ml-auto max-w-md">
             {/* Step number */}
             <span
               className="text-sm font-medium tracking-wider mb-2 block"
@@ -93,15 +92,14 @@ function TimelineStep({
           />
         </motion.div>
 
-        {/* Right content (shows on odd, icon box on even for desktop) */}
+        {/* Right - Image placeholder */}
         <motion.div
-          initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? 50 : -50 }}
+          initial={{ opacity: 0, x: 50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className={`${!isEven ? "lg:text-left" : "lg:order-3"}`}
         >
           <div
-            className="relative p-8 md:p-12 rounded-3xl overflow-hidden"
+            className="relative p-6 md:p-8 rounded-2xl overflow-hidden"
             style={{
               backgroundColor: "var(--bg-secondary)",
               border: "1px solid var(--border)",
@@ -109,7 +107,7 @@ function TimelineStep({
           >
             {/* Large faded number background */}
             <span
-              className="absolute -top-8 -right-4 font-display text-[150px] font-extralight opacity-[0.03] select-none"
+              className="absolute -top-6 -right-2 font-display text-[120px] font-extralight opacity-[0.03] select-none"
               style={{ color: "var(--text-primary)" }}
             >
               {step.number}
@@ -117,24 +115,24 @@ function TimelineStep({
 
             {/* Icon */}
             <div
-              className="w-20 h-20 rounded-2xl flex items-center justify-center relative z-10 lg:hidden mb-6"
+              className="w-16 h-16 rounded-xl flex items-center justify-center relative z-10 lg:hidden mb-5"
               style={{ backgroundColor: "rgba(196, 174, 134, 0.15)" }}
             >
-              <Icon className="w-10 h-10" style={{ color: "var(--accent)" }} />
+              <Icon className="w-8 h-8" style={{ color: "var(--accent)" }} />
             </div>
 
-            {/* Visual placeholder area */}
+            {/* Visual placeholder area - 25% smaller */}
             <div
-              className="hidden lg:flex aspect-video rounded-xl items-center justify-center relative z-10"
+              className="hidden lg:flex aspect-[4/3] max-w-[75%] mx-auto rounded-lg items-center justify-center relative z-10"
               style={{ backgroundColor: "var(--bg-tertiary)" }}
             >
-              <div className="text-center p-8">
+              <div className="text-center p-6">
                 <Icon
-                  className="w-16 h-16 mx-auto mb-4"
+                  className="w-12 h-12 mx-auto mb-3"
                   style={{ color: "var(--accent)", opacity: 0.4 }}
                 />
                 <span
-                  className="text-sm font-medium"
+                  className="text-xs font-medium"
                   style={{ color: "var(--text-tertiary)" }}
                 >
                   Step {step.number} Illustration
@@ -189,7 +187,15 @@ export function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-section">{HOW_IT_WORKS_CONTENT.headline}</h2>
+          <h2 className="text-section mb-6">{HOW_IT_WORKS_CONTENT.headline}</h2>
+          {HOW_IT_WORKS_CONTENT.subheadline && (
+            <p
+              className="text-lg md:text-xl max-w-3xl mx-auto"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {HOW_IT_WORKS_CONTENT.subheadline}
+            </p>
+          )}
         </motion.div>
 
         {/* Timeline container */}

@@ -1,9 +1,52 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter } from "lucide-react";
 import { Container } from "../ui/Container";
 import { SITE_CONFIG, FOOTER_CONTENT } from "../../lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+
+  // Helper to render link (internal vs external vs hash)
+  const renderLink = (link: { label: string; href: string }) => {
+    // External links
+    if (link.href.startsWith("http")) {
+      return (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:underline"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          {link.label}
+        </a>
+      );
+    }
+
+    // Hash links (scroll to section)
+    if (link.href.includes("#")) {
+      return (
+        <a
+          href={link.href}
+          className="transition-colors hover:underline"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          {link.label}
+        </a>
+      );
+    }
+
+    // Internal page routes
+    return (
+      <Link
+        to={link.href}
+        className="transition-colors hover:underline"
+        style={{ color: "var(--text-secondary)" }}
+      >
+        {link.label}
+      </Link>
+    );
+  };
 
   return (
     <footer
@@ -17,14 +60,14 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             {/* Brand Column */}
             <div className="lg:col-span-2">
-              <a href="/" className="inline-block">
+              <Link to="/" className="inline-block">
                 <span
                   className="font-display text-2xl font-medium"
                   style={{ color: "var(--text-primary)" }}
                 >
                   {SITE_CONFIG.name}
                 </span>
-              </a>
+              </Link>
               <p
                 className="mt-4 max-w-sm"
                 style={{ color: "var(--text-secondary)" }}
@@ -72,15 +115,7 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {FOOTER_CONTENT.services.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="transition-colors hover:underline"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
+                  <li key={link.label}>{renderLink(link)}</li>
                 ))}
               </ul>
             </div>
@@ -95,15 +130,7 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {FOOTER_CONTENT.company.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="transition-colors hover:underline"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
+                  <li key={link.label}>{renderLink(link)}</li>
                 ))}
               </ul>
             </div>
@@ -118,15 +145,7 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {FOOTER_CONTENT.legal.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="transition-colors hover:underline"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
+                  <li key={link.label}>{renderLink(link)}</li>
                 ))}
               </ul>
             </div>

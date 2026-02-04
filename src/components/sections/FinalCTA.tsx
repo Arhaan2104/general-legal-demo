@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { ArrowRight, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { FINAL_CTA_CONTENT } from "../../lib/constants";
@@ -21,6 +22,10 @@ export function FinalCTA() {
           className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl"
           style={{ backgroundColor: "rgba(214, 198, 167, 0.08)" }}
         />
+        <div
+          className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl"
+          style={{ backgroundColor: "rgba(196, 174, 134, 0.06)" }}
+        />
       </div>
 
       {/* Decorative border */}
@@ -40,30 +45,22 @@ export function FinalCTA() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center"
         >
-          <motion.h2 variants={fadeInUp} className="text-section mb-6">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-2xl md:text-3xl lg:text-4xl font-display font-light mb-12 max-w-3xl mx-auto leading-relaxed"
+            style={{ color: "var(--text-primary)" }}
+          >
             {FINAL_CTA_CONTENT.headline}
           </motion.h2>
 
-          <motion.p
-            variants={fadeInUp}
-            className="text-xl mb-10 max-w-lg mx-auto"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {FINAL_CTA_CONTENT.subheadline}
-          </motion.p>
-
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button variant="accent" size="lg">
-              {FINAL_CTA_CONTENT.primaryCta}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button variant="secondary" size="lg">
-              <Calendar className="w-5 h-5 mr-2" />
-              {FINAL_CTA_CONTENT.secondaryCta}
-            </Button>
+          {/* CTA Button */}
+          <motion.div variants={fadeInUp}>
+            <Link to="/contact">
+              <Button variant="accent" size="lg" className="whitespace-nowrap">
+                {FINAL_CTA_CONTENT.cta}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </Container>
