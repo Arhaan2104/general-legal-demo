@@ -32,12 +32,12 @@ export function Hero() {
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-2 h-24 rounded-full hidden lg:block" style={{ backgroundColor: 'var(--accent)' }} />
 
-      {/* Subtle grid pattern */}
+      {/* Legal-pad ruled lines */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `linear-gradient(var(--border) 0.5px, transparent 0.5px)`,
+          backgroundSize: '100% 28px'
         }}
       />
 
