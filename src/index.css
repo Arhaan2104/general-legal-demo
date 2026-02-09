@@ -256,6 +256,15 @@ body {
 }
 
 /* ============================================
+   LEGAL PATTERNS
+   ============================================ */
+
+.legal-lines {
+  background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px);
+  background-size: 100% 28px;
+}
+
+/* ============================================
    3D CARD TILT EFFECT
    ============================================ */
 

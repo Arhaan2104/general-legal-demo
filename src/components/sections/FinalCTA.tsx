@@ -37,6 +37,14 @@ export function FinalCTA() {
         }}
       />
 
+      {/* Legal section mark watermark */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] sm:text-[280px] md:text-[360px] font-serif opacity-[0.02] select-none pointer-events-none"
+        style={{ color: 'var(--accent)' }}
+      >
+        §
+      </div>
+
       <Container size="narrow" className="relative z-10">
         <motion.div
           variants={staggerContainer}
